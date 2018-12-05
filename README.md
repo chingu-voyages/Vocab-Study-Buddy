@@ -1,3 +1,11 @@
+## Setting Up The Repo
+```
+git clone https://github.com/chingu-voyages/Vocab-Study-Buddy.git
+# move into repo folder
+npm install
+npm start
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
