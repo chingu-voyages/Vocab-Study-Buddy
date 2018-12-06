@@ -7,12 +7,7 @@ class VocabGamePlay extends Component {
             firstSelection: false,
             secondSelection: false,
         }
-
     }
-
     render() {
-
     }
-
-
 }
