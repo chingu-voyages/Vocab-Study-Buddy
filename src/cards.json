@@ -1,32 +1,27 @@
-[{
+[
+{
+    "word": "Good-bye",
+    "translation": "Au revoir",
+    "isSelected": false
+},
+{
+    "word": "Rivière",
+    "translation": "River",
+    "isSelected": false
+},
+{
     "word": "Hello",
     "translation": "Bonjour",
     "isSelected": false
 },
-{
-    "word": "Thank you",
-    "translation": "Merci",
-    "isSelected": false
-},
-
 {
     "word": "Please",
     "translation": "S'il vous plaît",
     "isSelected": false
 },
 {
-    "word": "Yes",
-    "translation": "Oui",
-    "isSelected": false
-},
-{
-    "word": "Excuse me",
-    "translation": "Excusez-moi",
-    "isSelected": false
-},
-{
-    "word": "Pardon me",
-    "translation": "Pardon",
+    "word": "Excusez-moi",
+    "translation": "Excuse me",
     "isSelected": false
 },
 {
@@ -35,23 +30,28 @@
     "isSelected": false
 },
 {
-    "word": "Français",
-    "translation": "French",
+    "word": "Maison",
+    "translation": "House",
     "isSelected": false
 },
 {
-    "word": "Good-bye",
-    "translation": "Au revoir",
+    "word": "Fleur",
+    "translation": "Flower",
     "isSelected": false
 },
 {
-    "word": "Smile",
-    "translation": "Sourir",
+    "word": "Amour",
+    "translation": "Love",
     "isSelected": false
 },
 {
-    "word": "Dog",
-    "translation": "Chien",
+    "word": "Excuse me",
+    "translation": "Excusez-moi",
+    "isSelected": false
+},
+{
+    "word": "Au revoir",
+    "translation": "Good-bye",
     "isSelected": false
 },
 {
@@ -60,8 +60,13 @@
     "isSelected": false
 },
 {
-    "word": "Sky",
-    "translation": "Ciel",
+    "word": "S'il vous plaît",
+    "translation": "Please",
+    "isSelected": false
+},
+{
+    "word": "Bonjour",
+    "translation": "Hello",
     "isSelected": false
 },
 {
