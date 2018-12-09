@@ -1,0 +1,77 @@
+[{
+    "word": "Hello",
+    "translation": "Bonjour",
+    "isSelected": false
+},
+{
+    "word": "Thank you",
+    "translation": "Merci",
+    "isSelected": false
+},
+
+{
+    "word": "Please",
+    "translation": "S'il vous plaît",
+    "isSelected": false
+},
+{
+    "word": "Yes",
+    "translation": "Oui",
+    "isSelected": false
+},
+{
+    "word": "Excuse me",
+    "translation": "Excusez-moi",
+    "isSelected": false
+},
+{
+    "word": "Pardon me",
+    "translation": "Pardon",
+    "isSelected": false
+},
+{
+    "word": "Love",
+    "translation": "Amour",
+    "isSelected": false
+},
+{
+    "word": "Français",
+    "translation": "French",
+    "isSelected": false
+},
+{
+    "word": "Good-bye",
+    "translation": "Au revoir",
+    "isSelected": false
+},
+{
+    "word": "Smile",
+    "translation": "Sourir",
+    "isSelected": false
+},
+{
+    "word": "Dog",
+    "translation": "Chien",
+    "isSelected": false
+},
+{
+    "word": "House",
+    "translation": "Maison",
+    "isSelected": false
+},
+{
+    "word": "Sky",
+    "translation": "Ciel",
+    "isSelected": false
+},
+{
+    "word": "River",
+    "translation": "Rivière",
+    "isSelected": false
+},
+{
+    "word": "Flower",
+    "translation": "Fleur",
+    "isSelected": false
+}
+]
