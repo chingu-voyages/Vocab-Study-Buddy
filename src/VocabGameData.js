@@ -11,8 +11,9 @@ const basePairs = [
   ["can you help me, please?", "pouvez-vous m’aider, s’il vous plaît?"]
 ];
 
-let dataset = [];
+let datasetMap;
 function createDataset(base) {
+  let dataset = [];
   base.forEach(function(array) {
     dataset.push([
       array[0],
@@ -33,7 +34,7 @@ function createDataset(base) {
       }
     ]);
   });
+  datasetMap = new Map(dataset);
 }
 
 createDataset(basePairs);
-let datasetMap = new Map(dataset);
