@@ -1,6 +1,6 @@
 import { createDataset, basePairs } from './VocabGameData';
 
-describe('dataset is Map type', () => {
+describe('createDataset generates a Map type', () => {
   const datasetMap = createDataset(basePairs);
 
   test('dataset was correctly converted to Map by checking Map Size', () => {
@@ -12,15 +12,36 @@ describe('dataset is Map type', () => {
     const testValue = basePairs[0][0];
     expect(datasetMap.has(testValue)).toEqual(true);
   })
-  
-  test('dataset can update map object by changing status', () => {
-    let cardReference = datasetMap.get('hello');
-    cardReference.isSelected = true;
-    datasetMap.set('hello', cardReference)
-    expect(datasetMap.get('hello')).toEqual({"isCorrect": null, "isSelected": true, "translation": "bonjour", "word": "hello"});
+
+  test('dataset has correct word pairs', () => {
+    const firstWord = basePairs[0][0];
+    const secondWord = basePairs[0][1];
+    expect(datasetMap.get(firstWord)).toHaveProperty('translation', secondWord);
+    expect(datasetMap.get(secondWord)).toHaveProperty('translation', firstWord);
   })
   
   afterAll(() => {
     datasetMap.clear();
+  })
+})
+
+describe('error handling in createDataset', () => {
+  test('createDataset has null parameter', () => {
+    expect(createDataset(null)).toThrowError('null values')
+  })
+
+  test('createDataset has array of nulls', () => {
+    const dataset = [[null, null], [null, null]];
+    expect(createDataset(dataset)).toThrowError('null values')
+  })
+
+  test('createDataset has array of string / nulls', () => {
+    const dataset = [[null, 'hola'], ['hello', null]];
+    expect(createDataset(dataset)).toThrowError('null values')
+  })
+
+  test('createDataset has duplicate parameters', () => {
+    const dataset = [['hello', 'hola'], ['hello', 'buenvenido']];
+    expect(createDataset(dataset)).toThrowError('duplicate value')
   })
 })
