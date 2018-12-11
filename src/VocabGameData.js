@@ -1,4 +1,4 @@
-const basePairs = [
+export const basePairs = [
   ["hello", "bonjour"],
   ["goodbye", "au revoir"],
   ["please", "s'il vous plaît"],
@@ -11,8 +11,7 @@ const basePairs = [
   ["can you help me, please?", "pouvez-vous m’aider, s’il vous plaît?"]
 ];
 
-let datasetMap;
-function createDataset(base) {
+export function createDataset(base) {
   let dataset = [];
   base.forEach(function(array) {
     dataset.push([
@@ -34,7 +33,7 @@ function createDataset(base) {
       }
     ]);
   });
-  datasetMap = new Map(dataset);
+  return new Map(dataset);
 }
 
-createDataset(basePairs);
+export let GameDataset = createDataset(basePairs);
