@@ -1,6 +1,6 @@
 import { createDataset, basePairs } from './VocabGameData';
 
-describe('dataset is Map type', () => {
+describe('createDataset generates a Map type', () => {
   const datasetMap = createDataset(basePairs);
 
   test('dataset was correctly converted to Map by checking Map Size', () => {
@@ -22,5 +22,26 @@ describe('dataset is Map type', () => {
   
   afterAll(() => {
     datasetMap.clear();
+  })
+})
+
+describe('error handling in createDataset', () => {
+  test('createDataset has null parameter', () => {
+    expect(createDataset(null)).toThrowError('null values')
+  })
+
+  test('createDataset has array of nulls', () => {
+    const dataset = [[null, null], [null, null]];
+    expect(createDataset(dataset)).toThrowError('null values')
+  })
+
+  test('createDataset has array of string / nulls', () => {
+    const dataset = [[null, 'hola'], ['hello', null]];
+    expect(createDataset(dataset)).toThrowError('null values')
+  })
+
+  test('createDataset has duplicate parameters', () => {
+    const dataset = [['hello', 'hola'], ['hello', 'buenvenido']];
+    expect(createDataset(dataset)).toThrowError('duplicate value')
   })
 })
