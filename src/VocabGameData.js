@@ -19,8 +19,8 @@ export function createDataset(base) {
       {
         word: array[0],
         translation: array[1],
-        isSelected: null,
-        isCorrect: null
+        isSelected: false,
+        isCorrect: false
       }
     ],
     [
@@ -28,8 +28,8 @@ export function createDataset(base) {
       {
         word: array[1],
         translation: array[0],
-        isSelected: null,
-        isCorrect: null
+        isSelected: false,
+        isCorrect: false
       }
     ]);
   });
