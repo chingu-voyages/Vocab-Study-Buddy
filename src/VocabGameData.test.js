@@ -20,13 +20,6 @@ describe('dataset is Map type', () => {
     expect(datasetMap.get(secondWord)).toHaveProperty('translation', firstWord);
   })
   
-  test('dataset can update map object by changing status', () => {
-    let cardReference = datasetMap.get('hello');
-    cardReference.isSelected = true;
-    datasetMap.set('hello', cardReference)
-    expect(datasetMap.get('hello')).toEqual({"isCorrect": null, "isSelected": true, "translation": "bonjour", "word": "hello"});
-  })
-  
   afterAll(() => {
     datasetMap.clear();
   })
