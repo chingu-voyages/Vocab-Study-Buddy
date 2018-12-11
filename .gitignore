@@ -26,5 +26,4 @@ yarn-error.log*
 .idea
 .env
 dist
-node_modules
 src/server/config/config.json
