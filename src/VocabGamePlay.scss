@@ -1,19 +1,21 @@
 @import './shared.scss';
 
-* {
-  border: 1px dashed red;
-}
+// * {
+//   border: 1px dashed red;
+// }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: $main-text;
 }
 
 .vocabGamePlay--container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: $background-gradient;
 }
 
 #header {
@@ -21,6 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 200%;
 }
 
 #instructions {
@@ -47,7 +50,13 @@
     border-radius: 10px;
     padding: 1vh 1.5vw;
     word-break: break-word;
+    border: 1px solid $card-border;
+    background-color: $card-background;
+    color: $card-text;
   }
+    .card:hover {
+      box-shadow: $card-hover;
+    }
   #reset {
     height: 45px;
     width: 45px;
