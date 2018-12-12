@@ -32,7 +32,7 @@ class VocabGamePlay extends Component {
           <div className="card">hello</div>
           <div className="card">bonjour</div>
           <div className="card">hello</div>
-          <div className="card">bonjour</div>
+          <div className="card">bonjourbonjourbonjourbonjourbonjourbonjour</div>
           <div className="card">hello</div>
           <div className="card">bonjour</div>
           <div className="card">hello</div>
