@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./VocabGamePlay.scss";
+import {GameDataset} from "./VocabGameData.js";
 
 class VocabGamePlay extends Component {
     constructor(props) {
@@ -7,30 +8,39 @@ class VocabGamePlay extends Component {
         this.state = {
             firstSelection: null,
             secondSelection: null,
+            vocabDataSet: GameDataset,
         }
     }
-    handleClick(i){
+    handleClick(e){
+        let {value}=e.currentTarget;
+        value.isSelected=!value.isSelected;
         if (this.state.firstSelection===null){
-            //set firstSelection to word value of card
+           this.setState({firstSelection: value});
         }
         else if (this.state.secondSelection===null){
-            //set secondSelection to word value of card
-
-            //call check match function: checkMatch(this.state.firstSelection, this.state.secondSelection);
+            if (value===this.state.firstSelection){
+                this.setState({firstSelection: value});
+                return;
+            }
+            this.setState({secondSelection: value}, () => {this.checkMatch(this.state.firstSelection, this.state.secondSelection)});
         }
     }
     checkMatch(first, second){
-        //check if word value for secondSelection is equal to translation value for first selection
+       this.isCorrectUpdate(first.word===second.translation);
     }
 
-    inCorrectMatch(){
-        //set first and secondSelection to null
-    }
+    isCorrectUpdate(isMatch){
+        let first=this.state.firstSelection;
+        let second=this.state.secondSelection;
+        first.isCorrect=isMatch;
+        second.isCorrect=isMatch;
 
-    correctMatch(){
-        //set inactive for the matched cards to false
-        //set first and secondSelection to null
+        setTimeout(()=> {this.setState({
+            firstSelection: null,
+            secondSelection: null,
+        })}, 2000);
     }
+    
 
   render() {
     return (
