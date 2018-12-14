@@ -3,47 +3,68 @@
 COLORS
 ==========================
 */
-$dark-grey: #7f7f7f;
-$grey: #bbbbbb;
-$light-grey: #e6e6e6;
-$palest-grey: #f8f8f8;
+// $dark-grey: #7f7f7f;
+// $grey: #bbbbbb;
+// $light-grey: #e6e6e6;
+// $palest-grey: #f8f8f8;
 
-$background-1: #eef6fe;
-$background-2: #f9ebef;
-$background-gradient: linear-gradient($background-1 55%, $background-2);
+/* BACKGROUND */
+$light-blue: #eef6fe;
+$light-pink: #f9ebef;
+$background-gradient: linear-gradient($light-blue 55%, $light-pink);
 
-$main-text: #000;
-$card-text: #000;
+/* TEXT */
+// Main
+$dark-blue: #0b044a;
+// Card
+$black: #000;
 
-$card-border: #8a8a8a;
-$card-background: #fff;
-$card-hover: 0 0 10px #ababab;
+/* CARD */
+// Background
+$white: #fff;
+// Hover
+$medium-light-grey: #ababab;
+// Border
+$medium-grey: #8a8a8a;
+
 /*
 ==========================
 STYLE
 ==========================
 */
-$button-border-radius: 20px;
-$box-shadow: 0px 3px 6px $light-grey;
+// $button-border-radius: 20px;
+// $box-shadow: 0px 3px 6px $light-grey;
+
+/* CARD */
+$card-border: 1px solid $medium-grey;
+$card-hover: 0 0 10px $medium-light-grey;
+$card-border-radius: 10px;
+
 /*
 ==========================
 MAIN BUTTONS
 ==========================
 */
-@mixin system-button($background, $hover) {
-  width: 150px;
-  font-size: 14px;
-  background-color: $background;
-  color: white;
-  text-transform: uppercase;
-  border-radius: $button-border-radius;
-  padding: 10px;
-  letter-spacing: 0.1em;
-  text-align: center;
-  border: none;
-  display: block;
-  box-shadow: $box-shadow;
-  &:hover {
-    background-color: $hover;
-  }
+// @mixin system-button($background, $hover) {
+//   width: 150px;
+//   font-size: 14px;
+//   background-color: $background;
+//   color: white;
+//   text-transform: uppercase;
+//   border-radius: $button-border-radius;
+//   padding: 10px;
+//   letter-spacing: 0.1em;
+//   text-align: center;
+//   border: none;
+//   display: block;
+//   box-shadow: $box-shadow;
+//   &:hover {
+//     background-color: $hover;
+//   }
+// }
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
