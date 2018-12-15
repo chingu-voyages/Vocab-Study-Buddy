@@ -150,3 +150,15 @@
         grid-column: 1 / 2;
       }
 }
+
+@media only screen and (max-height: 899px) {
+  .vocabGamePlay--container {
+    background: linear-gradient($light-blue 42.5%, $light-pink);
+  }
+}
+
+@media only screen and (max-height: 599px) {
+  .vocabGamePlay--container {
+    background: linear-gradient($light-blue 30%, $light-pink);
+  }
+}
