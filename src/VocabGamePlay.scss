@@ -54,9 +54,6 @@
     background-color: $white;
     color: $black;
   }
-    .card:hover {
-      box-shadow: $card-hover;
-    }
   #reset {
     @include flex-center;
     height: 45px;
@@ -70,9 +67,6 @@
     border-radius: 100%;
     background-color: $medium-scarlet;
   }
-    #reset:hover {
-      box-shadow: $reset-hover;
-    }
 
 #footer {
   @include flex-center;
@@ -81,6 +75,16 @@
 
 
 /* MEDIA QUERIES */
+
+/* Pointer type for hover effects */
+@media only screen and (pointer: fine) {
+  .card:hover {
+    box-shadow: $card-hover;
+  }
+  #reset:hover {
+    box-shadow: $reset-hover;
+  }
+}
 
 /* Width-based */
 @media only screen and (max-width: 1499px) {
@@ -151,6 +155,7 @@
       }
 }
 
+/* Height-based */
 @media only screen and (max-height: 899px) {
   .vocabGamePlay--container {
     background: linear-gradient($light-blue 42.5%, $light-pink);
