@@ -18,6 +18,8 @@ $background-gradient: linear-gradient($light-blue 55%, $light-pink);
 $dark-blue: #0b044a;
 // Card
 $black: #000;
+// Reset
+// $light-pink
 
 /* CARD */
 // Background
@@ -26,6 +28,12 @@ $white: #fff;
 $medium-light-grey: #ababab;
 // Border
 $medium-grey: #8a8a8a;
+
+/* RESET */
+// Background
+$medium-scarlet: #bb263c;
+// Hover
+$light-scarlet: #d86274;
 
 /*
 ==========================
@@ -39,6 +47,9 @@ STYLE
 $card-border: 1px solid $medium-grey;
 $card-hover: 0 0 10px $medium-light-grey;
 $card-border-radius: 10px;
+
+/* RESET */
+$reset-hover: 0 0 10px $light-scarlet;
 
 /*
 ==========================

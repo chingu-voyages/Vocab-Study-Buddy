@@ -9,6 +9,7 @@
   padding: 0;
   box-sizing: border-box;
   color: $dark-blue;
+  cursor: default;
 }
 
 .vocabGamePlay--container {
@@ -29,6 +30,7 @@
 #instructions {
   @include flex-center;
   max-width: 1850px;
+  text-align: center;
   min-height: 8vh;
   padding: 0 8vw;
 }
@@ -56,16 +58,21 @@
       box-shadow: $card-hover;
     }
   #reset {
+    @include flex-center;
     height: 45px;
     width: 45px;
     position: absolute;
     top: 4vh;
     right: calc(8vw - 45px - 1vw);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 175%;
+    font-weight: bold;
+    color: $light-pink;
     border-radius: 100%;
+    background-color: $medium-scarlet;
   }
+    #reset:hover {
+      box-shadow: $reset-hover;
+    }
 
 #footer {
   @include flex-center;
@@ -75,6 +82,7 @@
 
 /* MEDIA QUERIES */
 
+/* Width-based */
 @media only screen and (max-width: 1499px) {
   #instructions {
     padding: 0 6vw;
@@ -112,7 +120,8 @@
     grid-template-rows: repeat(7, 1fr);
     grid-template-columns: repeat(6, 1fr);
     gap: 2vh 2vw;
-    padding: 5vh 6vw 2vh;
+    padding: 2vh 6vw;
+    padding-top: calc(2vh + 35px);
   }
     .card {
       grid-column: span 2;
