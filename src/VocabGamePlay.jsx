@@ -1,47 +1,54 @@
 import React, { Component } from 'react';
 import "./VocabGamePlay.scss";
-import {GameDataset} from "./VocabGameData.js";
+import { GameDataset } from "./VocabGameData.js";
 import WordCard from './WordCard';
 
 class VocabGamePlay extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstSelection: null,
-            secondSelection: null,
-            vocabDataSet: GameDataset,
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstSelection: null,
+      secondSelection: null,
+      vocabDataSet: GameDataset,
     }
-    handleClick(e){
-        let {value}=e.currentTarget;
-        value.isSelected=!value.isSelected;
-        if (this.state.firstSelection===null){
-           this.setState({firstSelection: value});
-        }
-        else if (this.state.secondSelection===null){
-            if (value===this.state.firstSelection){
-                this.setState({firstSelection: value});
-                return;
-            }
-            this.setState({secondSelection: value}, () => {this.checkMatch(this.state.firstSelection, this.state.secondSelection)});
-        }
+  }
+  handleClick(e) {
+    let { value } = e.currentTarget;
+    value.isSelected = !value.isSelected;
+    if (this.state.firstSelection === null) {
+      this.setState({ firstSelection: value });
     }
-    checkMatch(first, second){
-       this.isCorrectUpdate(first.word===second.translation);
+    else if (this.state.secondSelection === null) {
+      if (value === this.state.firstSelection) {
+        this.setState({ firstSelection: value });
+        return;
+      }
+      this.setState({ secondSelection: value }, () => { this.checkMatch(this.state.firstSelection, this.state.secondSelection) });
     }
+  }
+  checkMatch(first, second) {
+    this.isCorrectUpdate(first.word === second.translation);
+  }
 
-    isCorrectUpdate(isMatch){
-        let first=this.state.firstSelection;
-        let second=this.state.secondSelection;
-        first.isCorrect=isMatch;
-        second.isCorrect=isMatch;
+  isCorrectUpdate(isMatch) {
+    let first = this.state.firstSelection;
+    let second = this.state.secondSelection;
+    first.isCorrect = isMatch;
+    second.isCorrect = isMatch;
 
-        setTimeout(()=> {this.setState({
-            firstSelection: null,
-            secondSelection: null,
-        })}, 2000);
+    setTimeout(() => {
+      this.setState({
+        firstSelection: null,
+        secondSelection: null,
+      })
+    }, 2000);
+  }
+
+  renderGameCards = (mappedObject) => {
+    for (var value of mappedObject.values()) {
+      return <WordCard data={value} />
     }
-    
+  }
 
   render() {
     let { vocabDataSet } = this.state;
@@ -63,9 +70,7 @@ class VocabGamePlay extends Component {
         </div>
         <div id="card-grid-container">
           {
-              vocabDataSet.map((data, idx) => { 
-                  return <WordCard data={data} key={idx} />
-              })
+            this.renderGameCards(vocabDataSet)
           }
           <div id="reset">↺</div>
         </div>
