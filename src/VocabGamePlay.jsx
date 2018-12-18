@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./VocabGamePlay.scss";
 import {GameDataset} from "./VocabGameData.js";
+import WordCard from './WordCard';
 
 class VocabGamePlay extends Component {
     constructor(props) {
@@ -43,6 +44,7 @@ class VocabGamePlay extends Component {
     
 
   render() {
+    let { vocabDataSet } = this.state;
     return (
       <div className="vocabGamePlay--container">
         <div id="header">VOCABULARY STUDY BUDDY</div>
@@ -60,26 +62,11 @@ class VocabGamePlay extends Component {
           </p>
         </div>
         <div id="card-grid-container">
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjourbonjourbonjourbonjourbonjourbonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
+          {
+              vocabDataSet.map((data, idx) => { 
+                  return <WordCard data={data} key={idx} />
+              })
+          }
           <div id="reset">↺</div>
         </div>
         <div id="footer">show us love</div>
