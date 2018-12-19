@@ -45,13 +45,16 @@ class VocabGamePlay extends Component {
   }
 
   renderGameCards = (mappedObject) => {
+    let renderedItems = []
     for (var value of mappedObject.values()) {
-      return <WordCard data={value} />
+      renderedItems.push(<WordCard key={value.word} data={value} />)
     }
+    return renderedItems;
   }
 
   render() {
     let { vocabDataSet } = this.state;
+    console.log(vocabDataSet)
     return (
       <div className="vocabGamePlay--container">
         <div id="header">VOCABULARY STUDY BUDDY</div>
@@ -69,9 +72,7 @@ class VocabGamePlay extends Component {
           </p>
         </div>
         <div id="card-grid-container">
-          {
-            this.renderGameCards(vocabDataSet)
-          }
+          {this.renderGameCards(vocabDataSet)}
           <div id="reset">↺</div>
         </div>
         <div id="footer">show us love</div>
