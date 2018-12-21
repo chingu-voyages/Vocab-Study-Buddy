@@ -12,20 +12,22 @@ class VocabGamePlay extends Component {
       vocabDataSet: GameDataset,
     }
   }
-  handleClick(e) {
-    let { value } = e.currentTarget;
-    value.isSelected = !value.isSelected;
+
+  handleClick(e, data) {
+    console.log(data);
+    data.isSelected = !data.isSelected;
     if (this.state.firstSelection === null) {
-      this.setState({ firstSelection: value });
-    }
-    else if (this.state.secondSelection === null) {
-      if (value === this.state.firstSelection) {
-        this.setState({ firstSelection: value });
+      this.setState({ firstSelection: data });
+    } else if (this.state.secondSelection === null) {
+      if (data === this.state.firstSelection) {
+        this.setState({ firstSelection: data });
         return;
       }
-      this.setState({ secondSelection: value }, () => { this.checkMatch(this.state.firstSelection, this.state.secondSelection) });
+      this.setState({ secondSelection: data }, () => { this.checkMatch(this.state.firstSelection, this.state.secondSelection) });
     }
   }
+  
+
   checkMatch(first, second) {
     this.isCorrectUpdate(first.word === second.translation);
   }
