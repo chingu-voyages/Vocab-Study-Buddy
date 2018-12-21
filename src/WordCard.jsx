@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
-// import VocabGameData from './VocabGameData';
+import React from 'react';
 
-
-const WordCard = (props) => {
-    console.log(props)
+const WordCard = ({ data }) => {
     return(
-
-      <div>      
-
-
+      <div className="card">  
+        {data.word}    
       </div>  
     )   
 };
