@@ -24,7 +24,7 @@ describe('clicking cards saves to state', () => {
   })
 });
 
-describe('card match functions', () => {
+describe('card matches changes data objects', () => {
   let wrapper;
   let firstItem = GameDataset.get('hello');
   let secondItem = GameDataset.get('bonjour');
@@ -40,8 +40,12 @@ describe('card match functions', () => {
     expect(wrapper.state().firstSelection).toEqual(firstItem)
     expect(wrapper.state().secondSelection).toEqual(secondItem)
   })
-  test('first and second card saves to state', () => {
-    expect(wrapper.state().firstSelection).toEqual(firstItem)
-    expect(wrapper.state().secondSelection).toEqual(secondItem)
-  })
+  // test('first and second card are a match', () => {
+  //   expect(wrapper.state().firstSelection).toEqual(firstItem)
+  //   expect(wrapper.state().secondSelection).toEqual(secondItem)
+  // })
+  // test('first and third card are not a match', () => {
+  //   expect(wrapper.state().firstSelection).toEqual(firstItem)
+  //   expect(wrapper.state().secondSelection).toEqual(secondItem)
+  // })
 })
