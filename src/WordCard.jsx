@@ -1,8 +1,8 @@
 import React from 'react';
 
-const WordCard = ({ data }) => {
+const WordCard = ({ data, handleClick }) => {
     return(
-      <div className="card">  
+      <div className="card" value={data} onClick={(e) => handleClick(e, data)}>  
         {data.word}    
       </div>  
     )   
