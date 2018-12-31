@@ -10,7 +10,7 @@ class VocabGamePlay extends Component {
             secondSelection: null,
             vocabDataSet: GameDataset,
         }
-        // TEMPORARY (14)
+        // TEMPORARY (13 - 14)
         this.handle = this.handle.bind(this);
     }
     handleClick(e, data) {
@@ -78,7 +78,7 @@ class VocabGamePlay extends Component {
           </p>
         </div>
         <div id="card-grid-container">
-          {/* TEMPORARY (46 - 47 onClick)*/}
+          {/* TEMPORARY (81 - 83 onClick)*/}
           <div className="card" onClick={this.handle}>hello</div>
           <div className="card" onClick={this.handle}>bonjour</div>
           <div className="card">hello</div>
