@@ -17,17 +17,32 @@ $background-gradient: linear-gradient($light-blue 55%, $light-pink);
 // Main
 $dark-blue: #0b044a;
 // Card
-$black: #000;
+  // Initial
+  $black: #000;
+  // Inactive
+  // $medium-light-grey
 // Reset
 // $light-pink
 
 /* CARD */
 // Background
-$white: #fff;
+  // Initial + reset
+  $white: #fff;
+  // Inactive
+  $light-grey: #ebebeb;
 // Hover
 $medium-light-grey: #ababab;
-// Border
-$medium-grey: #8a8a8a;
+// Border 
+  // Initial + reset
+  $medium-grey: #8a8a8a;
+  // Select
+  $medium-light-blue: #a8c9eb;
+  // Correct
+  $medium-green: #70c6a5;
+  // Incorrect
+  // $medium-scarlet
+  // Inactive
+  // $light-grey
 
 /* RESET */
 // Background
@@ -47,6 +62,10 @@ STYLE
 $card-border: 1px solid $medium-grey;
 $card-hover: 0 0 10px $medium-light-grey;
 $card-border-radius: 10px;
+$card-select-border: 4px solid $medium-light-blue;
+$card-correct-border: 4px solid $medium-green;
+$card-incorrect-border: 4px solid $medium-scarlet;
+$card-inactive-border: 1px solid $light-grey;
 
 /* RESET */
 $reset-hover: 0 0 10px $light-scarlet;
