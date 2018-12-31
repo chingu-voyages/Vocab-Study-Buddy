@@ -8,7 +8,23 @@ class VocabGamePlay extends Component {
       firstSelection: false,
       secondSelection: false,
     }
+    // TEMPORARY (11 - 12)
+    this.handle = this.handle.bind(this);
+  }
 
+  // TEMPORARY (16 - 26)
+  handle(e) {
+    if (e.target.className === "card") {
+      e.target.className = "card card-select";
+    } else if (e.target.className === "card card-select") {
+      e.target.className = "card card-correct";
+    } else if (e.target.className === "card card-correct") {
+      e.target.className = "card card-incorrect";
+    } else if (e.target.className === "card card-incorrect") {
+      e.target.className = "card card-inactive";
+    } else if (e.target.className === "card card-inactive") {
+      e.target.className = "card";
+    }
   }
 
   render() {
@@ -29,8 +45,9 @@ class VocabGamePlay extends Component {
           </p>
         </div>
         <div id="card-grid-container">
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
+          {/* TEMPORARY (46 - 47 onClick)*/}
+          <div className="card" onClick={this.handle}>hello</div>
+          <div className="card" onClick={this.handle}>bonjour</div>
           <div className="card">hello</div>
           <div className="card">bonjourbonjourbonjourbonjourbonjourbonjour</div>
           <div className="card">hello</div>
