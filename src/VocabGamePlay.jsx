@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
 import "./VocabGamePlay.scss";
+import {GameDataset} from "./VocabGameData.js";
 
 class VocabGamePlay extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstSelection: false,
-      secondSelection: false,
+    constructor(props) {
+        super(props);
+        this.state = {
+            firstSelection: null,
+            secondSelection: null,
+            vocabDataSet: GameDataset,
+        }
+        // TEMPORARY (14)
+        this.handle = this.handle.bind(this);
     }
-    // TEMPORARY (11 - 12)
-    this.handle = this.handle.bind(this);
-  }
+    handleClick(e, data) {
+      console.log(data);
+      data.isSelected = !data.isSelected;
+      if (this.state.firstSelection === null) {
+        this.setState({ firstSelection: data });
+      }
+      else if (this.state.secondSelection === null) {
+        if (data === this.state.firstSelection) {
+          this.setState({ firstSelection: data });
+          return;
+        }
+        this.setState({ secondSelection: data }, () => { this.checkMatch(this.state.firstSelection, this.state.secondSelection) });
+      }
+    }
+    checkMatch(first, second){
+       this.isCorrectUpdate(first.word===second.translation);
+    }
+  
 
-  // TEMPORARY (16 - 26)
+  // TEMPORARY (35 - 48)
   handle(e) {
     if (e.target.className === "card") {
       e.target.className = "card card-select";
@@ -26,6 +46,19 @@ class VocabGamePlay extends Component {
       e.target.className = "card";
     }
   }
+
+    isCorrectUpdate(isMatch){
+        let first=this.state.firstSelection;
+        let second=this.state.secondSelection;
+        first.isCorrect=isMatch;
+        second.isCorrect=isMatch;
+
+        setTimeout(()=> {this.setState({
+            firstSelection: null,
+            secondSelection: null,
+        })}, 2000);
+    }
+  
 
   render() {
     return (
@@ -72,8 +105,6 @@ class VocabGamePlay extends Component {
       </div>
     )
   }
-
-
 }
 
 export default VocabGamePlay;
