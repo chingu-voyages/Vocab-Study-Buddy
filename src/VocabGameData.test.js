@@ -1,4 +1,5 @@
 import { createDataset, basePairs } from './VocabGameData';
+import { create } from 'domain';
 
 describe('createDataset generates a Map type', () => {
   const datasetMap = createDataset(basePairs);
@@ -25,23 +26,31 @@ describe('createDataset generates a Map type', () => {
   })
 })
 
+// toThrowError wants a function passed to Expect 
+// to that it can execute a try/catch
+// createDataset(dataset) will not work because it returns a Mapped Object
+// not the function itself, thus we are using a anonymous function as line 40
 describe('error handling in createDataset', () => {
   test('createDataset has null parameter', () => {
-    expect(createDataset(null)).toThrowError('null values')
+    expect(() => { return createDataset(null) }).toThrowError('null values')
+  })
+
+  test('createDataset has non-array parameter', () => {
+    expect(() => { return createDataset('string') }).toThrowError('non arrays')
   })
 
   test('createDataset has array of nulls', () => {
     const dataset = [[null, null], [null, null]];
-    expect(createDataset(dataset)).toThrowError('null values')
+    expect(() => { return createDataset(dataset) }).toThrowError('null values')
   })
 
   test('createDataset has array of string / nulls', () => {
     const dataset = [[null, 'hola'], ['hello', null]];
-    expect(createDataset(dataset)).toThrowError('null values')
+    expect(() => { return createDataset(dataset) }).toThrowError('null values')
   })
 
   test('createDataset has duplicate parameters', () => {
     const dataset = [['hello', 'hola'], ['hello', 'buenvenido']];
-    expect(createDataset(dataset)).toThrowError('duplicate value')
+    expect(() => { return createDataset(dataset) }).toThrowError('duplicate value')
   })
 })
