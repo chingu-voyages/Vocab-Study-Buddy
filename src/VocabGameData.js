@@ -12,6 +12,12 @@ export const basePairs = [
 ];
 
 export function createDataset(base) {
+  if (base == null) {
+    throw new Error('createDataset does not allow null values')
+  }
+  if (!Array.isArray(base)) {
+    throw new Error('createDataset does not allow non arrays')
+  }
   let dataset = [];
   base.forEach(function(array) {
     dataset.push([
@@ -36,4 +42,10 @@ export function createDataset(base) {
   return new Map(dataset);
 }
 
-export let GameDataset = createDataset(basePairs);
+export let GameDataset;
+try {
+  GameDataset = createDataset(basePairs)
+} catch(error) {
+  console.error(error.message);
+  GameDataset = new Map();
+}
