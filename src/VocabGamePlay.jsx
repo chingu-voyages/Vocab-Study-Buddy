@@ -10,8 +10,6 @@ class VocabGamePlay extends Component {
             secondSelection: null,
             vocabDataSet: GameDataset,
         }
-        // TEMPORARY (13 - 14)
-        this.handle = this.handle.bind(this);
     }
     handleClick(e, data) {
       console.log(data);
@@ -30,22 +28,6 @@ class VocabGamePlay extends Component {
     checkMatch(first, second){
        this.isCorrectUpdate(first.word===second.translation);
     }
-  
-
-  // TEMPORARY (35 - 48)
-  handle(e) {
-    if (e.target.className === "card") {
-      e.target.className = "card card-select";
-    } else if (e.target.className === "card card-select") {
-      e.target.className = "card card-correct";
-    } else if (e.target.className === "card card-correct") {
-      e.target.className = "card card-incorrect";
-    } else if (e.target.className === "card card-incorrect") {
-      e.target.className = "card card-inactive";
-    } else if (e.target.className === "card card-inactive") {
-      e.target.className = "card";
-    }
-  }
 
     isCorrectUpdate(isMatch){
         let first=this.state.firstSelection;
@@ -78,9 +60,8 @@ class VocabGamePlay extends Component {
           </p>
         </div>
         <div id="card-grid-container">
-          {/* TEMPORARY (81 - 83 onClick)*/}
-          <div className="card" onClick={this.handle}>hello</div>
-          <div className="card" onClick={this.handle}>bonjour</div>
+          <div className="card">hello</div>
+          <div className="card">bonjour</div>
           <div className="card">hello</div>
           <div className="card">bonjourbonjourbonjourbonjourbonjourbonjour</div>
           <div className="card">hello</div>
