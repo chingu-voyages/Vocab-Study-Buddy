@@ -12,6 +12,22 @@ export const basePairs = [
 ];
 
 export function createDataset(base) {
+  if (base == null) {
+    throw new Error('createDataset does not allow null values')
+  }
+  if (!Array.isArray(base)) {
+    throw new Error('createDataset does not allow non arrays')
+  }
+  base.forEach(function(array) {
+    if (array.includes(null)) {
+      throw new Error ("arrays passed into createDataset may not contain null values");
+    }
+  });
+  let baseFlattened = [].concat(...base);
+  let set = new Set(baseFlattened);
+  if (set.size !== baseFlattened.length) {
+    throw new Error ("arrays passed into createDataset may not contain duplicate values");
+  }
   let dataset = [];
   base.forEach(function(array) {
     dataset.push([
@@ -36,4 +52,10 @@ export function createDataset(base) {
   return new Map(dataset);
 }
 
-export let GameDataset = createDataset(basePairs);
+export let GameDataset;
+try {
+  GameDataset = createDataset(basePairs)
+} catch(error) {
+  console.error(error.message);
+  GameDataset = new Map();
+}

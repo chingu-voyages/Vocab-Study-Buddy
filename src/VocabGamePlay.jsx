@@ -1,48 +1,62 @@
 import React, { Component } from 'react';
 import "./VocabGamePlay.scss";
-import {GameDataset} from "./VocabGameData.js";
+import { GameDataset } from "./VocabGameData.js";
+import WordCard from './WordCard';
 
 class VocabGamePlay extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstSelection: null,
-            secondSelection: null,
-            vocabDataSet: GameDataset,
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstSelection: null,
+      secondSelection: null,
+      vocabDataSet: GameDataset,
     }
-    handleClick(e, data) {
-      console.log(data);
-      data.isSelected = !data.isSelected;
-      if (this.state.firstSelection === null) {
+  }
+
+  handleClick(e, data) {
+    console.log(data);
+    data.isSelected = !data.isSelected;
+    if (this.state.firstSelection === null) {
+      this.setState({ firstSelection: data });
+    } else if (this.state.secondSelection === null) {
+      if (data === this.state.firstSelection) {
         this.setState({ firstSelection: data });
+        return;
       }
-      else if (this.state.secondSelection === null) {
-        if (data === this.state.firstSelection) {
-          this.setState({ firstSelection: data });
-          return;
-        }
-        this.setState({ secondSelection: data }, () => { this.checkMatch(this.state.firstSelection, this.state.secondSelection) });
-      }
+      this.setState({ secondSelection: data }, () => { this.checkMatch(this.state.firstSelection, this.state.secondSelection) });
     }
-    checkMatch(first, second){
-       this.isCorrectUpdate(first.word===second.translation);
-    }
-
-    isCorrectUpdate(isMatch){
-        let first=this.state.firstSelection;
-        let second=this.state.secondSelection;
-        first.isCorrect=isMatch;
-        second.isCorrect=isMatch;
-
-        setTimeout(()=> {this.setState({
-            firstSelection: null,
-            secondSelection: null,
-        })}, 2000);
-    }
+  }
   
 
+  checkMatch(first, second) {
+    this.isCorrectUpdate(first.word === second.translation);
+  }
+
+  isCorrectUpdate(isMatch) {
+    let first = this.state.firstSelection;
+    let second = this.state.secondSelection;
+    first.isCorrect = isMatch;
+    second.isCorrect = isMatch;
+
+    setTimeout(() => {
+      this.setState({
+        firstSelection: null,
+        secondSelection: null,
+      })
+    }, 2000);
+  }
+
+  renderGameCards = (mappedObject) => {
+    let renderedItems = []
+    for (var value of mappedObject.values()) {
+      renderedItems.push(<WordCard key={value.word} data={value} />)
+    }
+    return renderedItems;
+  }
+
   render() {
+    let { vocabDataSet } = this.state;
+    console.log(vocabDataSet)
     return (
       <div className="vocabGamePlay--container">
         <div id="header">VOCABULARY STUDY BUDDY</div>
@@ -60,26 +74,7 @@ class VocabGamePlay extends Component {
           </p>
         </div>
         <div id="card-grid-container">
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjourbonjourbonjourbonjourbonjourbonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
-          <div className="card">hello</div>
-          <div className="card">bonjour</div>
+          {this.renderGameCards(vocabDataSet)}
           <div id="reset">↺</div>
         </div>
         <div id="footer">show us love</div>
