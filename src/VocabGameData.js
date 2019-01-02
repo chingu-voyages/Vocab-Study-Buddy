@@ -20,13 +20,13 @@ export function createDataset(base) {
   }
   base.forEach(function(array) {
     if (array.includes(null)) {
-      throw new Error ("null values");
+      throw new Error ("arrays passed into createDataset may not contain null values");
     }
   });
   let baseFlattened = [].concat(...base);
   let set = new Set(baseFlattened);
   if (set.size !== baseFlattened.length) {
-    throw new Error ("duplicate value");
+    throw new Error ("arrays passed into createDataset may not contain duplicate values");
   }
   let dataset = [];
   base.forEach(function(array) {
