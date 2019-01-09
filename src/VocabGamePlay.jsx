@@ -13,26 +13,28 @@ class VocabGamePlay extends Component {
     }
   }
 
-  handleClick(e, data) {
+  handleClick = (data) => {
     console.log(data);
     data.isSelected = !data.isSelected;
-    if (this.state.firstSelection === null) {
+    let { firstSelection, secondSelection } = this.state;
+    if (firstSelection === null) {
       this.setState({ firstSelection: data });
-    } else if (this.state.secondSelection === null) {
-      if (data === this.state.firstSelection) {
-        this.setState({ firstSelection: data });
+    } else if (secondSelection === null) {
+      if (data === firstSelection) {
+        this.setState({ firstSelection: null });
         return;
       }
-      this.setState({ secondSelection: data }, () => { this.checkMatch(this.state.firstSelection, this.state.secondSelection) });
+      this.setState({ secondSelection: data }, () => { 
+        this.checkMatch(this.state.firstSelection, this.state.secondSelection) 
+      });
     }
   }
   
-
-  checkMatch(first, second) {
+  checkMatch = (first, second) => {
     this.isCorrectUpdate(first.word === second.translation);
   }
 
-  isCorrectUpdate(isMatch) {
+  isCorrectUpdate = (isMatch) => {
     let first = this.state.firstSelection;
     let second = this.state.secondSelection;
     first.isCorrect = isMatch;
