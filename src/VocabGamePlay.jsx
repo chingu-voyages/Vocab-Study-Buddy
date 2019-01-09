@@ -49,7 +49,7 @@ class VocabGamePlay extends Component {
   renderGameCards = (mappedObject) => {
     let renderedItems = []
     for (var value of mappedObject.values()) {
-      renderedItems.push(<WordCard key={value.word} data={value} />)
+      renderedItems.push(<WordCard key={value.word} data={value} handleClick={this.handleClick} />)
     }
     return renderedItems;
   }
