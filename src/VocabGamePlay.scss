@@ -53,7 +53,25 @@
     border: $card-border;
     background-color: $white;
     color: $black;
+    transition: 
+      border 0.25s ease-out,
+      background-color 0.25s ease-out,
+      color 0.25s ease-out;
   }
+    .card-select {
+      border: $card-select-border;
+    }
+    .card-correct {
+      border: $card-correct-border;
+    }
+    .card-incorrect {
+      border: $card-incorrect-border;
+    }
+    .card-inactive {
+      border: $card-inactive-border;
+      background-color: $light-grey;
+      color: $medium-light-grey;
+    }
   #reset {
     @include flex-center;
     height: 45px;
