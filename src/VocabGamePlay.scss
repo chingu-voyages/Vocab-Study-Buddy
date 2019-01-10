@@ -62,16 +62,37 @@
       border: $card-select-border;
     }
     .card-correct {
-      border: $card-correct-border;
+      animation: correct-animation ease-out 2s forwards;
     }
     .card-incorrect {
-      border: $card-incorrect-border;
+      animation: incorrect-animation ease-out 2s forwards;
     }
-    .card-inactive {
-      border: $card-inactive-border;
-      background-color: $light-grey;
-      color: $medium-light-grey;
-    }
+      @keyframes correct-animation {
+        0% {
+          border: $card-select-border;
+        }
+        40%, 70% {
+          border: $card-correct-border;
+          background-color: $white;
+          color: $black;
+        }
+        100% {
+          border: $card-inactive-border;
+          background-color: $light-grey;
+          color: $medium-light-grey;
+        }
+      }
+      @keyframes incorrect-animation {
+        0% {
+          border: $card-select-border;
+        }
+        40%, 70% {
+          border: $card-incorrect-border;
+        }
+        100% {
+          border: $card-border;
+        }
+      }
   #reset {
     @include flex-center;
     height: 45px;
