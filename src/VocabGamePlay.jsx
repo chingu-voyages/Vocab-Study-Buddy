@@ -14,7 +14,7 @@ class VocabGamePlay extends Component {
   }
 
   handleClick = (data) => {
-    console.log(data);
+    //console.log(data);
     data.isSelected = !data.isSelected;
     let { firstSelection, secondSelection } = this.state;
     if (firstSelection === null) {
@@ -49,16 +49,35 @@ class VocabGamePlay extends Component {
   }
 
   renderGameCards = (mappedObject) => {
-    let renderedItems = []
+    let renderedItems = [];
+    console.log(this.state.firstSelection);
+    console.log(this.state.secondSelection);
+    function determineColor(selected, correct) {
+      if (selected && correct) {
+        return "card-correct";
+      } else if (this.state.secondSelection && selected && !correct) {
+        return "card-incorrect";
+      } else if (selected) {
+        return "card-select";
+      }
+    }
     for (var value of mappedObject.values()) {
-      renderedItems.push(<WordCard key={value.word} data={value} handleClick={this.handleClick} />)
+      let color = determineColor.call(this, value.isSelected, value.isCorrect);
+      renderedItems.push(
+        <WordCard 
+          className={`card ${color}`}
+          key={value.word} 
+          data={value} 
+          handleClick={this.handleClick} 
+        />
+      );
     }
     return renderedItems;
   }
 
   render() {
     let { vocabDataSet } = this.state;
-    console.log(vocabDataSet)
+    //console.log(vocabDataSet)
     return (
       <div className="vocabGamePlay--container">
         <div id="header">VOCABULARY STUDY BUDDY</div>
