@@ -15,6 +15,12 @@ class VocabGamePlay extends Component {
   componentWillMount() {
     this.setState({ shuffledDataSet: this.shuffleGameCards(this.props.dataset) })
   }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.dataset !== this.props.dataset) {
+      this.setState({ shuffledDataSet: this.shuffleGameCards(this.props.dataset) })
+    }
+  }
   
   handleStateToggle = (wordObject, state) => {
     wordObject[state] = !wordObject[state];
@@ -113,7 +119,6 @@ class VocabGamePlay extends Component {
 
   render() {
     let { shuffledDataSet } = this.state;
-    console.log(shuffledDataSet)
     return (
       <div className="vocabGamePlay--container">
         <div id="header">VOCABULARY STUDY BUDDY</div>
