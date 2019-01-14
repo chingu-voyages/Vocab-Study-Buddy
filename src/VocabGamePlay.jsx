@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./VocabGamePlay.scss";
-import { GameDataset } from "./VocabGameData.js";
 import WordCard from './WordCard';
 
 class VocabGamePlay extends Component {
@@ -14,7 +13,7 @@ class VocabGamePlay extends Component {
   }
 
   componentWillMount() {
-    this.setState({ shuffledDataSet: this.shuffleGameCards(GameDataset) })
+    this.setState({ shuffledDataSet: this.shuffleGameCards(this.props.dataset) })
   }
   
   handleStateToggle = (wordObject, state) => {
@@ -70,7 +69,7 @@ class VocabGamePlay extends Component {
     }
     this.setState({ shuffledDataSet: this.shuffleGameCards(mappedObject) })
   }
-  
+
   shuffleGameCards = (mappedObject) => {
     if (!mappedObject) { return }
     let array = Array.from(mappedObject);
