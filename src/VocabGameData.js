@@ -1,4 +1,4 @@
-export const basePairs = [
+export const frenchPairs = [
   ["hello", "bonjour"],
   ["goodbye", "au revoir"],
   ["please", "s'il vous plaît"],
@@ -9,6 +9,32 @@ export const basePairs = [
   ["yes", "oui"],
   ["no", "non"],
   ["can you help me, please?", "pouvez-vous m’aider, s’il vous plaît?"]
+];
+
+export const italianPairs = [
+  ["hello", "ciao"],
+  ["goodbye", "addio"],
+  ["please", "per favore"],
+  ["thank you", "grazie"],
+  ["thank you very much", "Grazie mille"],
+  ["you're welcome", "prego"],
+  ["excuse me", "Scusami"],
+  ["yes", "si"],
+  ["good night", "buona notte"],
+  ["can you help me, please?", "Mi potete aiutare per favore?"]
+];
+
+export const japanesePairs = [
+  ["hello", "Kon'nichiwa"],
+  ["goodbye", "Sayōnara"],
+  ["please", "Onegaishimasu"],
+  ["thank you", "Arigatō gozaimashita"],
+  ["where is the bathroom", "Keshō-shitsu wa dokodesu ka?"],
+  ["you're welcome", "Dōitashimashite"],
+  ["excuse me", "Sumimasen"],
+  ["yes", "Hai"],
+  ["good night", "Oyasuminasai"],
+  ["can you help me, please?", "Tasukete moraemasu ka?"]
 ];
 
 export function createDataset(base) {
@@ -52,9 +78,15 @@ export function createDataset(base) {
   return new Map(dataset);
 }
 
-export let GameDataset;
+export let GameDataset = {
+  french: frenchPairs,
+  italian: italianPairs,
+  japanese: japanesePairs,
+}
 try {
-  GameDataset = createDataset(basePairs)
+  for (var key in GameDataset) {
+    GameDataset[key] = createDataset(GameDataset[key])
+  }
 } catch(error) {
   console.error(error.message);
   GameDataset = new Map();
