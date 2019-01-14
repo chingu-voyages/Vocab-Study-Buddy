@@ -68,6 +68,9 @@
     }
     .card-correct {
       animation: correct-animation ease-out 2s forwards;
+      &:hover{
+        transform: scale(1)
+      }
     }
     .card-incorrect {
       animation: incorrect-animation ease-out 2s forwards;
