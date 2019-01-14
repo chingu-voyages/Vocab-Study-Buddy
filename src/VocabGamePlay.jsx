@@ -12,35 +12,44 @@ class VocabGamePlay extends Component {
       vocabDataSet: GameDataset,
     }
   }
+  
+  handleStateToggle = (wordObject, state) => {
+    wordObject[state] = !wordObject[state];
+  }
 
   handleClick = (data) => {
-    //console.log(data);
-    data.isSelected = !data.isSelected;
     let { firstSelection, secondSelection } = this.state;
+    if (data.isCorrect) { return ; } // ignores correct cards
     if (firstSelection === null) {
+      if (data.isCorrect) { return ; } 
+      this.handleStateToggle(data, 'isSelected');
       this.setState({ firstSelection: data });
     } else if (secondSelection === null) {
       if (data === firstSelection) {
+        this.handleStateToggle(firstSelection, 'isSelected');
         this.setState({ firstSelection: null });
         return;
       }
+      this.handleStateToggle(data, 'isSelected');
       this.setState({ secondSelection: data }, () => { 
         this.checkMatch(this.state.firstSelection, this.state.secondSelection) 
       });
     }
+    
   }
   
   checkMatch = (first, second) => {
-    this.isCorrectUpdate(first.word === second.translation);
-  }
+    let isMatchOrNot = first.word === second.translation;
+    first.isCorrect = isMatchOrNot;
+    second.isCorrect = isMatchOrNot;
 
-  isCorrectUpdate = (isMatch) => {
-    let first = this.state.firstSelection;
-    let second = this.state.secondSelection;
-    first.isCorrect = isMatch;
-    second.isCorrect = isMatch;
+    console.log({ isMatchOrNot, first: first.isCorrect, second: second.isCorrect })
 
     setTimeout(() => {
+      if (!isMatchOrNot) {
+        first.isSelected = false;
+        second.isSelected = false;
+      }
       this.setState({
         firstSelection: null,
         secondSelection: null,
@@ -50,8 +59,10 @@ class VocabGamePlay extends Component {
 
   renderGameCards = (mappedObject) => {
     let renderedItems = [];
-    console.log(this.state.firstSelection);
-    console.log(this.state.secondSelection);
+    console.log({ 
+      first: this.state.firstSelection && this.state.firstSelection.isCorrect, 
+      second: this.state.secondSelection  && this.state.secondSelection.isCorrect
+    })
     function determineColor(selected, correct) {
       if (selected && correct) {
         return "card-correct";
@@ -59,7 +70,7 @@ class VocabGamePlay extends Component {
         return "card-incorrect";
       } else if (selected) {
         return "card-select";
-      }
+      } 
     }
     for (var value of mappedObject.values()) {
       let color = determineColor.call(this, value.isSelected, value.isCorrect);
