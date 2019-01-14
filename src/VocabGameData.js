@@ -37,6 +37,13 @@ export const japanesePairs = [
   ["can you help me, please?", "Tasukete moraemasu ka?"]
 ];
 
+export const CardState = {
+  UNSELECTED: 0,
+  SELECTED: 1,
+  CORRECT: 2,
+  INCORRECT: 3,
+}
+
 export function createDataset(base) {
   if (base == null) {
     throw new Error('createDataset does not allow null values')
@@ -61,8 +68,7 @@ export function createDataset(base) {
       {
         word: array[0],
         translation: array[1],
-        isSelected: false,
-        isCorrect: false
+        state: CardState.UNSELECTED,
       }
     ],
     [
@@ -70,8 +76,7 @@ export function createDataset(base) {
       {
         word: array[1],
         translation: array[0],
-        isSelected: false,
-        isCorrect: false
+        state: CardState.UNSELECTED,
       }
     ]);
   });
