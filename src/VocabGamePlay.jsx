@@ -9,15 +9,21 @@ class VocabGamePlay extends Component {
     this.state = {
       firstSelection: null,
       secondSelection: null,
-      vocabDataSet: GameDataset,
+      shuffledDataSet: null,
     }
+  }
+
+  componentWillMount() {
+    this.setState({ shuffledDataSet: this.shuffleGameCards(GameDataset) })
   }
   
   handleStateToggle = (wordObject, state) => {
     wordObject[state] = !wordObject[state];
   }
 
-  handleClick = (data) => {
+  handleClick = (e, data) => {
+    e.preventDefault();
+
     let { firstSelection, secondSelection } = this.state;
     if (data.isCorrect) { return ; } // ignores correct cards
     if (firstSelection === null) {
@@ -57,12 +63,32 @@ class VocabGamePlay extends Component {
     }, 2000);
   }
 
+  resetGame = (mappedObject) => {
+    for (var value of mappedObject.values()) {
+      value.isCorrect = false;
+      value.isSelected = false;
+    }
+    this.setState({ shuffledDataSet: this.shuffleGameCards(mappedObject) })
+  }
+  
+  shuffleGameCards = (mappedObject) => {
+    if (!mappedObject) { return }
+    let array = Array.from(mappedObject);
+    let currentIdx = array.length;
+    let temporaryValue, randomIdx;
+    while (0 !== currentIdx) {
+      randomIdx = Math.floor(Math.random() * currentIdx);
+      currentIdx -= 1;
+
+      temporaryValue = array[currentIdx];
+      array[currentIdx] = array[randomIdx];
+      array[randomIdx] = temporaryValue;
+    }
+    return new Map(array);
+  }
+
   renderGameCards = (mappedObject) => {
     let renderedItems = [];
-    console.log({ 
-      first: this.state.firstSelection && this.state.firstSelection.isCorrect, 
-      second: this.state.secondSelection  && this.state.secondSelection.isCorrect
-    })
     function determineColor(selected, correct) {
       if (selected && correct) {
         return "card-correct";
@@ -87,8 +113,8 @@ class VocabGamePlay extends Component {
   }
 
   render() {
-    let { vocabDataSet } = this.state;
-    //console.log(vocabDataSet)
+    let { shuffledDataSet } = this.state;
+    console.log(shuffledDataSet)
     return (
       <div className="vocabGamePlay--container">
         <div id="header">VOCABULARY STUDY BUDDY</div>
@@ -106,8 +132,8 @@ class VocabGamePlay extends Component {
           </p>
         </div>
         <div id="card-grid-container">
-          {this.renderGameCards(vocabDataSet)}
-          <div id="reset">↺</div>
+          {shuffledDataSet && this.renderGameCards(shuffledDataSet)}
+          <div id="reset" onClick={() => this.resetGame(shuffledDataSet)}>↺</div>
         </div>
         <div id="footer">show us love</div>
       </div>
