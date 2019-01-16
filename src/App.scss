@@ -6,3 +6,24 @@
   flex-direction: column;
   background: $background-gradient;
 }
+
+#header {
+  @include flex-center;
+  min-height: 12vh;
+  text-align: center;
+  font-size: 200%;
+  font-weight: bold;
+}
+
+#instructions {
+  @include flex-center;
+  max-width: 1850px;
+  text-align: center;
+  min-height: 8vh;
+  padding: 0 8vw;
+}
+
+#footer {
+  @include flex-center;
+  min-height: 5vh;
+}

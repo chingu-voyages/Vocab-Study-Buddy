@@ -14,25 +14,8 @@
 
 .vocabGamePlay--container {
   @include flex-center;
-  min-height: 100vh;
   flex-direction: column;
   background: $background-gradient;
-}
-
-#header {
-  @include flex-center;
-  min-height: 12vh;
-  text-align: center;
-  font-size: 200%;
-  font-weight: bold;
-}
-
-#instructions {
-  @include flex-center;
-  max-width: 1850px;
-  text-align: center;
-  min-height: 8vh;
-  padding: 0 8vw;
 }
 
 #card-grid-container {
@@ -116,11 +99,6 @@
     background-color: $medium-scarlet;
   }
 
-#footer {
-  @include flex-center;
-  min-height: 5vh;
-}
-
 
 /* MEDIA QUERIES */
 
@@ -203,7 +181,7 @@
       }
 }
 
-/* Height-based */
+/* Height-based background change*/
 @media only screen and (max-height: 899px) {
   .vocabGamePlay--container {
     background: linear-gradient($light-blue 42.5%, $light-pink);
