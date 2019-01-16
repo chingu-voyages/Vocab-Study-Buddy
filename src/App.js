@@ -40,7 +40,9 @@ class App extends Component {
     let { currentDataset } = this.state;
     return (
       <div className="App">
-        { this.renderVocabButtons() }
+        <div id="language-sets-container">
+          { this.renderVocabButtons() }
+        </div>
         <div id="header">VOCABULARY STUDY BUDDY</div>
         <div id="instructions">
           <p>
