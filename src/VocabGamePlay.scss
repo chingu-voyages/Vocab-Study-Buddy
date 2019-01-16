@@ -47,6 +47,7 @@
 }
   .card {
     @include flex-center;
+    text-align: center;
     border-radius: $card-border-radius;
     padding: 1vh 1.5vw;
     word-break: break-word;
