@@ -1,0 +1,8 @@
+@import './shared.scss';
+
+.App {
+  @include flex-center;
+  min-height: 100vh;
+  flex-direction: column;
+  background: $background-gradient;
+}
