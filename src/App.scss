@@ -7,9 +7,14 @@
   background: $background-gradient;
 }
 
+#language-sets-container {
+  @include flex-center;
+  min-height: 4vh;
+}
+
 #header {
   @include flex-center;
-  min-height: 12vh;
+  min-height: 10vh;
   text-align: center;
   font-size: 200%;
   font-weight: bold;
@@ -19,11 +24,11 @@
   @include flex-center;
   max-width: 1850px;
   text-align: center;
-  min-height: 8vh;
+  min-height: 6.5vh;
   padding: 0 8vw;
 }
 
 #footer {
   @include flex-center;
-  min-height: 5vh;
+  min-height: 4.5vh;
 }
