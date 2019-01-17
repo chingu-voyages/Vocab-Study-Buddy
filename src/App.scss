@@ -9,12 +9,13 @@
 
 #language-sets-container {
   @include flex-center;
-  min-height: 4vh;
+  flex-wrap: wrap;
+  min-height: 5.5vh;
 }
 
 #header {
   @include flex-center;
-  min-height: 10vh;
+  min-height: 9vh;
   text-align: center;
   font-size: 200%;
   font-weight: bold;
@@ -30,5 +31,5 @@
 
 #footer {
   @include flex-center;
-  min-height: 4.5vh;
+  min-height: 4vh;
 }
