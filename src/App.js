@@ -46,15 +46,15 @@ class App extends Component {
         <div id="header">VOCABULARY STUDY BUDDY</div>
         <div id="instructions">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Sed feugiat neque quis ultricies rutrum. Sed ornare eu sapien a luctus.
-            Nullam nulla enim, vulputate in arcu nec, volutpat lobortis enim.
-            Nam nec finibus lorem, vitae tincidunt metus.
-            Cras fermentum erat vel massa finibus malesuada.
-            Maecenas quis luctus est.
-            Curabitur cursus ante eget nisl rutrum, in vulputate lacus scelerisque.
-            Praesent et vulputate lectus. Aenean mi purus, tincidunt eu semper eget,
-            efficitur vitae justo. Etiam nec rhoncus elit, vitae lacinia velit.
+            Goal: Match each English word with its translation 
+            in the currently selected language (e.g. "hello" with "hola") 
+            by clicking the appropriate cards. 
+            Incorrect selections will flash a red border 
+            while correct ones will flash a green border. 
+            You may reset and/or reshuffle the board at any time 
+            by clicking the red reset button, 
+            and you may switch between languages using 
+            the buttons at the top of the page.
           </p>
         </div>
         <VocabGamePlay dataset={currentDataset} />
