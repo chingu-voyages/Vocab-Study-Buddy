@@ -46,11 +46,13 @@ class App extends Component {
         <div id="header">VOCABULARY STUDY BUDDY</div>
         <div id="instructions">
           <p>
-            Goal: Match each English word with its translation 
+            <strong>Goal:</strong> Match each English word with its translation 
             in the currently selected language (e.g. "hello" with "hola") 
-            by clicking the appropriate cards. 
+            by clicking the appropriate cards.<br />
+            <br />
             Incorrect selections will flash a red border 
-            while correct ones will flash a green border. 
+            while correct ones will flash a green border.<br />
+            <br />
             You may reset and/or reshuffle the board at any time 
             by clicking the red reset button, 
             and you may switch between languages using 
