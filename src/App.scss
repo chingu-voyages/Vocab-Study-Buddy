@@ -15,8 +15,10 @@
 }
   .dataset-btn {
     width: 150px;
-    background: transparent;
+    background: $medium-green;
     font: inherit;
+    font-weight: bold;
+    color: $white;
     border: $language-button-border;
     border-radius: 50px;
     padding: 6px;
