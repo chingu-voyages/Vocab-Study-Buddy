@@ -15,15 +15,21 @@
 }
   .dataset-btn {
     width: 150px;
-    background: $medium-green;
+    background: $light-grey;
     font: inherit;
     font-weight: bold;
-    color: $white;
+    color: $medium-grey;
     border: $language-button-border;
     border-radius: 50px;
     padding: 6px;
     margin: 4px 15px;
     cursor: pointer;
+  }
+
+  .dataset-btn--selected {
+    color: white;
+    background-color: $medium-green;
+    border: 2px solid $medium-green;
   }
 
 #header {

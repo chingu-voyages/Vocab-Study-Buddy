@@ -20,8 +20,7 @@ class App extends Component {
           type='button'
           name={key}
           key={key}
-          className='dataset-btn'
-          autoFocus={this.state.currentDatasetName === key} // currently selected
+          className={`dataset-btn ${this.state.currentDatasetName === key && 'dataset-btn--selected'}`}
           onClick={(e) => this.changeGameDataset(e)}
         >
         {key}
