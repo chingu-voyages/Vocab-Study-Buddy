@@ -52,7 +52,7 @@
     .card-correct {
       animation: correct-animation ease-out 1.25s forwards;
       &:hover{
-        transform: scale(1.1);
+        transform: scale(1.0);
       }
     }
     .card-incorrect {
