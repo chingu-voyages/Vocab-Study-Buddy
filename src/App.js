@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./App.scss";
 import VocabGamePlay from "./VocabGamePlay";
 import { GameDataset } from "./VocabGameData.js";
 
@@ -39,8 +40,27 @@ class App extends Component {
     let { currentDataset } = this.state;
     return (
       <div className="App">
-        { this.renderVocabButtons() }
+        <div id="language-sets-container">
+          { this.renderVocabButtons() }
+        </div>
+        <div id="header">VOCABULARY STUDY BUDDY</div>
+        <div id="instructions">
+          <p>
+            <strong>Goal:</strong> Match each English word with its translation 
+            (e.g. "hello" with "hola") 
+            by clicking the appropriate cards.<br />
+            <br />
+            Incorrect selections will flash a red border 
+            while correct ones will flash a green border.<br />
+            <br />
+            You may reset and/or reshuffle the board  
+            by clicking the red reset button, 
+            and you may switch between languages using 
+            the buttons at the top of the page.
+          </p>
+        </div>
         <VocabGamePlay dataset={currentDataset} />
+        <div id="footer">show us love</div>
       </div>
     );
   }

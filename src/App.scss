@@ -1,0 +1,49 @@
+@import './shared.scss';
+
+.App {
+  @include flex-center;
+  min-height: 100vh;
+  flex-direction: column;
+  background: $background-gradient;
+}
+
+#language-sets-container {
+  @include flex-center;
+  flex-wrap: wrap;
+  min-height: 5.5vh;
+  margin-top: 1vh;
+}
+  .dataset-btn {
+    width: 150px;
+    background: $medium-green;
+    font: inherit;
+    font-weight: bold;
+    color: $white;
+    border: $language-button-border;
+    border-radius: 50px;
+    padding: 6px;
+    margin: 4px 15px;
+    cursor: pointer;
+  }
+
+#header {
+  @include flex-center;
+  min-height: 8.5vh;
+  text-align: center;
+  font-size: 200%;
+  font-weight: bold;
+}
+
+#instructions {
+  @include flex-center;
+  max-width: 1850px;
+  text-align: center;
+  min-height: 6vh;
+  padding: 0 8vw;
+}
+
+#footer {
+  @include flex-center;
+  min-height: 3vh;
+  margin-bottom: 1vh;
+}

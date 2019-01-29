@@ -14,25 +14,8 @@
 
 .vocabGamePlay--container {
   @include flex-center;
-  min-height: 100vh;
   flex-direction: column;
   background: $background-gradient;
-}
-
-#header {
-  @include flex-center;
-  min-height: 12vh;
-  text-align: center;
-  font-size: 200%;
-  font-weight: bold;
-}
-
-#instructions {
-  @include flex-center;
-  max-width: 1850px;
-  text-align: center;
-  min-height: 8vh;
-  padding: 0 8vw;
 }
 
 #card-grid-container {
@@ -47,6 +30,7 @@
 }
   .card {
     @include flex-center;
+    text-align: center;
     border-radius: $card-border-radius;
     padding: 1vh 1.5vw;
     word-break: break-word;
@@ -55,25 +39,29 @@
     color: $black;
     cursor: pointer;
     &:hover{
-      transform: scale(1.02)
+      transform: scale(1.1);
     }
     transition: 
       border 0.25s ease-out,
       background-color 0.25s ease-out,
       color 0.25s ease-out;
-    
   }
     .card-select {
       border: $card-select-border;
     }
     .card-correct {
-      animation: correct-animation ease-out 2s forwards;
+      animation: correct-animation ease-out 1.25s forwards;
       &:hover{
-        transform: scale(1)
+        transform: scale(1.1);
       }
     }
     .card-incorrect {
-      animation: incorrect-animation ease-out 2s forwards;
+      animation: incorrect-animation ease-out 1.25s forwards;
+    }
+    .card-inactive {
+      border: $card-inactive-border;
+      background-color: $light-grey;
+      color: $medium-light-grey;
     }
       @keyframes correct-animation {
         0% {
@@ -114,11 +102,6 @@
     border-radius: 100%;
     background-color: $medium-scarlet;
   }
-
-#footer {
-  @include flex-center;
-  min-height: 5vh;
-}
 
 
 /* MEDIA QUERIES */
@@ -202,7 +185,7 @@
       }
 }
 
-/* Height-based */
+/* Height-based background change*/
 @media only screen and (max-height: 899px) {
   .vocabGamePlay--container {
     background: linear-gradient($light-blue 42.5%, $light-pink);
